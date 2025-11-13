@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(git checkout:*)",
+      "Bash(npx expo install:*)",
+      "Bash(npm run type-check:*)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "Bash(supabase status:*)",
+      "Bash(setx PATH \"%PATH%;C:\\Users\\Douglas\\.bun\\bin\")",
+      "Bash(C:UsersDouglas.bunbinsupabase --version)",
+      "Bash(\"C:\\Users\\Douglas\\.bun\\bin\\supabase.exe\" --version)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

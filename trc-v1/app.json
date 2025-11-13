@@ -1,23 +1,45 @@
 {
   "expo": {
-    "name": "trc-v1",
+    "name": "The Ribbon Club",
     "slug": "trc-v1",
     "version": "1.0.0",
+    "description": "An inclusive social app for neurodivergent-friendly connections",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "trcv1",
+    "scheme": "trc",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ribbonclub.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "We need access to your camera to upload profile photos.",
+        "NSPhotoLibraryUsageDescription": "We need access to your photo library to upload profile photos.",
+        "NSLocationWhenInUseUsageDescription": "We use your approximate location to show you nearby people and events. Your exact location is never shared.",
+        "NSUserTrackingUsageDescription": "This helps us improve your experience."
+      },
+      "config": {
+        "usesNonExemptEncryption": false
+      }
     },
     "android": {
+      "package": "com.ribbonclub.app",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.VIBRATE",
+        "android.permission.POST_NOTIFICATIONS"
+      ],
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
@@ -27,6 +49,37 @@
     },
     "plugins": [
       "expo-router",
+      "expo-secure-store",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "newArchEnabled": true
+          },
+          "android": {
+            "newArchEnabled": true
+          }
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app needs access to your photos to let you upload profile pictures."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow TRC to use your approximate location to show nearby people and events."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/notification-icon.png",
+          "color": "#E6F4FE"
+        }
+      ],
       [
         "expo-splash-screen",
         {
@@ -43,6 +96,15 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "your-eas-project-id"
+      }
+    },
+    "owner": "your-expo-account"
   }
 }
